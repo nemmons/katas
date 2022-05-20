@@ -1,5 +1,5 @@
 package calculator
 
-func calculate() int {
-	return 1
+func calculatePayment(hourlyRate int, hours int) int {
+	return hourlyRate * hours
 }

@@ -29,24 +29,6 @@ Deliverable:
 ## Running
 Coming Soon!
 
-## Manual Calculations
-
-| Number | Flat | A   | B   | C   |
-|:-------|:-----|:----|:----|:----|
-| 5      | 1    | 15  | 12  | 21  |
-| 6      | 1    | 15  | 12  | 21  |
-| 7      | 1    | 15  | 12  | 21  |
-| 8      | 1    | 15  | 12  | 21  |
-| 9      | 1    | 15  | 12  | 15  |
-| 10     | 1    | 15  | 8   | 15  |
-| 11     | 1    | 20  | 8   | 15  |
-| 12     | 1    | 20  | 16  | 15  |
-| 1      | 1    | 20  | 16  | 15  |
-| 2      | 1    | 20  | 16  | 15  |
-| 3      | 1    | 20  | 16  | 15  |
-| 4      |      |     |     |     |
-|        | 11   | 190 | 140 | 189 |
-
 ## Attribution
 
 This exercise was lifted from https://github.com/ManApart/babysitter-kata

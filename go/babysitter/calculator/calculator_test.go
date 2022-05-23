@@ -40,31 +40,22 @@ func testCountHours(t *testing.T) {
 	}
 }
 
-func TestGetRate(t *testing.T) {
-	paymentStructure := []hourlyRate{
-		{17, 23, 15},
-		{23, 26, 20},
-		{26, 28, 50},
-	}
-
+func TestGetHours(t *testing.T) {
 	tests := []struct {
-		hour         int
-		expectedRate int
+		startTime     int
+		endTime       int
+		expectedHours []int
 	}{
-		{17, 15},
-		{19, 15},
-		{23, 20},
-		{25, 20},
-		{26, 50},
-		{27, 50},
-		{28, 0}, //wages are not defined for the 4am-5am time window
+		{1, 5, []int{1, 2, 3, 4}},
+		{18, 20, []int{18, 19}},
+		{22, 28, []int{22, 23, 24, 25, 26, 27}},
 	}
 
 	for _, testCase := range tests {
-		actual := getRate(paymentStructure, testCase.hour)
+		actual := getHours(testCase.startTime, testCase.endTime)
 
-		if actual != testCase.expectedRate {
-			t.Errorf("Bad total rate for hour %d amount... got=%d, want=%d", testCase.hour, actual, testCase.expectedRate)
+		if !equals(actual, testCase.expectedHours) {
+			t.Errorf("Bad total rate for hours from %d - %d amount... got=%d, want=%d", testCase.startTime, testCase.endTime, actual, testCase.expectedHours)
 		}
 	}
 }
@@ -82,4 +73,18 @@ func TestFullNightCalculation(t *testing.T) {
 	if actual != expectedTotal {
 		t.Errorf("Bad total payment amount... got=%d, want=%d", actual, expectedTotal)
 	}
+}
+
+func equals(a []int, b []int) bool {
+	if len(a) != len(b) {
+		return false
+	}
+
+	for i, e := range a {
+		if b[i] != e {
+			return false
+		}
+	}
+
+	return true
 }
